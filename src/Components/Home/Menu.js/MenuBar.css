@@ -1,0 +1,51 @@
+.p-tabmenu {
+  position: relative;
+  top: -25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* .p-tabmenu-nav {
+  border: 1px solid #fff;
+} */
+
+.p-tabmenuitem {
+  border-radius: 50%;
+  color: white;
+}
+.p-menuitem-text {
+  color: white;
+}
+
+.p-menuitem-icon {
+  color: white;
+}
+
+.p-menuitem-link {
+  color: white;
+}
+
+/*  bread crumb */
+
+.p-breadcrumb {
+  background: transparent;
+  border: none;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5em;
+  margin-top: -1em;
+}
+
+@media (max-width: 768px) {
+  .p-tabmenu {
+    width: 100vmin;
+  }
+  .p-menuitem-text {
+    display: none;
+  }
+  .p-breadcrumb {
+    width: 100%;
+  }
+}
