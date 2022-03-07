@@ -1,0 +1,55 @@
+.open-main-item {
+  transform: translateX(0%);
+  transition: all 0.4s;
+}
+
+.collapse-main-item {
+  position: absolute;
+  transform: translateX(-200%);
+  transition: all 0.4s;
+}
+
+.title {
+  color: white;
+  font-family: "Cinzel", serif;
+  text-align: center;
+}
+
+.projects-container {
+  display: flex;
+  gap: 1em;
+}
+
+.connect-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+}
+
+.resume-container {
+  display: flex;
+  justify-content: center;
+}
+
+.resume-image {
+  border: 1px solid black;
+  margin: 1em;
+  border-radius: 3%;
+  box-shadow: 2px 2px 6px 1px black;
+}
+
+.resume-btn {
+  display: grid;
+  margin: 0 auto;
+}
+
+.center-skeleton {
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .projects-container {
+    flex-direction: column;
+  }
+}

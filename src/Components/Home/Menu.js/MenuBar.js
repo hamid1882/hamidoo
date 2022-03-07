@@ -4,20 +4,17 @@ import { BreadCrumb } from "primereact/breadcrumb";
 import "./MenuBar.css";
 
 const items = [
-  { label: "Home", icon: "pi pi-fw pi-home" },
-  { label: "Calendar", icon: "pi pi-fw pi-calendar" },
-  { label: "Edit", icon: "pi pi-fw pi-pencil" },
-  { label: "Documentation", icon: "pi pi-fw pi-file" },
-  { label: "Settings", icon: "pi pi-fw pi-cog" },
+  { label: "Portfolio", icon: "pi pi-fw pi-home" },
+  { label: "Blogs", icon: "pi pi-fw pi-calendar" },
+  { label: "Connect", icon: "pi pi-fw pi-pencil" },
 ];
 
-function MenuBar() {
+function MenuBar({ currentTabValue, setCurrentTabValue }) {
   const [tabIndex, setTabIndex] = useState(0);
-  const [currentTabValue, setCurrentTabValue] = useState("Home");
 
   const handleTabIndex = (e) => {
     setTabIndex(e.index);
-    setCurrentTabValue(e.value.label);
+    setCurrentTabValue(items[e.index].label);
   };
 
   const trackedItems = [{ label: currentTabValue }];
