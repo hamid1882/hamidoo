@@ -1,5 +1,5 @@
 .home-container {
-  height: 100vh;
+  height: calc(100vh + 15vh);
   background: rgb(0, 0, 0);
   background: linear-gradient(
     60deg,
@@ -59,7 +59,7 @@
 
 @media (max-width: 768px) {
   .home-container {
-    height: calc(100vh + 25vh);
+    height: 100vh;
   }
   .home-intro-name {
     font-size: 1.8em;

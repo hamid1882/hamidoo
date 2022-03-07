@@ -5,7 +5,7 @@
 
 .collapse-main-item {
   position: absolute;
-  transform: translateX(-200%);
+  transform: translateX(-250%);
   transition: all 0.4s;
 }
 
@@ -37,6 +37,7 @@
   margin: 1em;
   border-radius: 3%;
   box-shadow: 2px 2px 6px 1px black;
+  width: 90%;
 }
 
 .resume-btn {
