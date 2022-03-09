@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Skeleton } from "primereact/skeleton";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
-import FileExplorer from "../../Images/file-explorer.png";
+
+import allProjects from "./Projects";
 import "./MainPage.css";
 
 const Portflio = ({ currentTabValue }) => {
@@ -18,22 +19,6 @@ const Portflio = ({ currentTabValue }) => {
     }
   }, [currentTabValue]);
 
-  const header = <img alt="Card" src={FileExplorer} />;
-  const footer = (
-    <span>
-      <Button
-        label="View Code"
-        icon="pi pi-github"
-        style={{ marginRight: ".25em" }}
-      />
-      <Button
-        label="Live Demo"
-        icon="pi pi-check"
-        className="p-button-secondary"
-      />
-    </span>
-  );
-
   return (
     <div
       className={`main-container  ${
@@ -45,24 +30,46 @@ const Portflio = ({ currentTabValue }) => {
       <h1 className="title">{currentTabValue}</h1>
       {isLoaded ? (
         <div className="projects-container">
-          <Card footer={footer} header={header}>
-            Mini-File-Explorer
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus, odio magni corporis maxime quam voluptatem nam iusto
-              vero quo, perferendis earum alias, incidunt voluptate eligendi
-              suscipit eos soluta repudiandae amet?
-            </p>
-          </Card>
-          <Card footer={footer} header={header}>
-            Content
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus, odio magni corporis maxime quam voluptatem nam iusto
-              vero quo, perferendis earum alias, incidunt voluptate eligendi
-              suscipit eos soluta repudiandae amet?
-            </p>
-          </Card>
+          {allProjects.map((project, idx) => (
+            <Card
+              footer={
+                <span>
+                  <a
+                    alt={project.name}
+                    className="link-styles"
+                    href={project.github_link}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <Button
+                      icon="pi pi-github"
+                      label={project.name}
+                      style={{ marginRight: ".25em" }}
+                    ></Button>
+                  </a>
+                  <a
+                    alt={project.name}
+                    className="link-styles"
+                    href={project.live_demo}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <Button
+                      className="p-button-secondary"
+                      icon="pi pi-check"
+                      label={project.name}
+                    >
+                      Live Demo
+                    </Button>
+                  </a>
+                </span>
+              }
+              header={<img alt="Card" src={project.image} />}
+            >
+              {project.name}
+              <p>{project.description}</p>
+            </Card>
+          ))}
         </div>
       ) : (
         <div className="projects-container">
