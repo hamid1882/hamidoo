@@ -32,8 +32,9 @@ const Portflio = ({ currentTabValue }) => {
         <div className="projects-container">
           {allProjects.map((project, idx) => (
             <Card
+              key={idx}
               footer={
-                <span>
+                <div className="project-btn">
                   <a
                     alt={project.name}
                     className="link-styles"
@@ -43,8 +44,8 @@ const Portflio = ({ currentTabValue }) => {
                   >
                     <Button
                       icon="pi pi-github"
-                      label={project.name}
                       style={{ marginRight: ".25em" }}
+                      label="Github"
                     ></Button>
                   </a>
                   <a
@@ -57,14 +58,18 @@ const Portflio = ({ currentTabValue }) => {
                     <Button
                       className="p-button-secondary"
                       icon="pi pi-check"
-                      label={project.name}
-                    >
-                      Live Demo
-                    </Button>
+                      label="Live Demo"
+                    ></Button>
                   </a>
-                </span>
+                </div>
               }
-              header={<img alt="Card" src={project.image} />}
+              header={
+                <img
+                  alt="Card"
+                  src={project.image}
+                  className="projects-image"
+                />
+              }
             >
               {project.name}
               <p>{project.description}</p>

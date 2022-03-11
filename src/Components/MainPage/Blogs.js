@@ -22,10 +22,9 @@ const Blogs = ({ currentTabValue }) => {
   }, [currentTabValue]);
 
   const handleSelectBlog = (e) => {
-    // const checkBlogId = e.target.id === "" ? "1" : e.target.id;
-    // setSelectedBlogId(Number(checkBlogId) - 1);
+    const checkBlogId = e.target.id === "" ? "1" : e.target.id;
+    setSelectedBlogId(Number(checkBlogId) - 1);
     setIsReadMore(!isReadMore);
-    console.log(e);
   };
 
   const allBlogs = [
@@ -61,8 +60,6 @@ const Blogs = ({ currentTabValue }) => {
 
   const checkBlogs = isReadMore ? allBlogs[selectedBlogId] : allBlogs;
 
-  // console.log(checkBlogs);
-
   return (
     <div
       className={`main-container  ${
@@ -82,17 +79,18 @@ const Blogs = ({ currentTabValue }) => {
                 className="blog-card-container"
                 key={blog.id}
                 footer={
-                  <span>
-                    <Button
-                      label="Read More..."
-                      icon="pi pi-check"
-                      style={{ marginRight: ".25em" }}
-                      onClick={handleSelectBlog}
+                  <div>
+                    <button
+                      className="read-more-btn"
                       id={blog.id}
-                      title={blog.id}
+                      onClick={handleSelectBlog}
                       ref={selectedBlog}
-                    />
-                  </span>
+                      style={{ marginRight: ".25em" }}
+                      title={blog.name}
+                    >
+                      Read More...
+                    </button>
+                  </div>
                 }
                 header={
                   <img
